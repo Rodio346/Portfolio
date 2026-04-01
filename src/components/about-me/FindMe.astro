@@ -1,3 +1,8 @@
+---
+import { withBase } from '../../lib/withBase';
+const professionalUrl = withBase(import.meta.env.BASE_URL, 'professional/');
+---
+
 <p class="sec-label">Find me.</p>
 <h2>Say hello.</h2>
 <p class="body">I'm best reached by email. Open to conversations about AI safety, research collaborations, or anything else that seems worth discussing.</p>
@@ -25,7 +30,7 @@
 </div>
 <div class="row last">
   <p class="label">Work site</p>
-  <a class="value" href="/Porfolio/professional/">Professional portfolio →</a>
+  <a class="value" href={professionalUrl}>Professional portfolio →</a>
   <p class="note">the formal version</p>
 </div>
 
