@@ -14,6 +14,15 @@
   --intro-gap: 18px;
 }
 
+:root[data-theme='light'] {
+  --bg: #f7f3eb;
+  --text: #1f1f1a;
+  --muted: #66625d;
+  --accent: #2f7f6e;
+  --border: rgba(31, 31, 26, 0.12);
+  --border-hover: rgba(31, 31, 26, 0.3);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,6 +46,13 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (min-width: 1024px) {
+  body.nav-vertical main {
+    margin-left: 208px;
+    margin-right: auto;
+  }
 }
 
 h1,
@@ -130,4 +146,35 @@ a:hover {
 
 .highlight {
   color: var(--text);
+}
+
+.utility-controls {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+  z-index: 40;
+}
+
+.util-btn {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.util-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.util-btn.hidden {
+  display: none;
 }

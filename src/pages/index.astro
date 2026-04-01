@@ -1,68 +1,85 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Research from '../components/Research.astro';
-import Experience from '../components/Experience.astro';
-import Projects from '../components/Projects.astro';
-import Skills from '../components/Skills.astro';
-import Contact from '../components/Contact.astro';
+
+const professionalUrl = `${import.meta.env.BASE_URL}professional/`;
+const personalUrl = `${import.meta.env.BASE_URL}about-me/`;
 ---
 
 <Base
-  title="Vishal Yadav — AI Evaluation & Safety Research Engineer"
-  description="Research Engineer specialising in AI evaluation, bias mitigation, and the societal impacts of frontier AI systems. Based in London."
+  title="Vishal Yadav"
+  description="Choose between professional profile and personal side."
 >
-  <Nav />
-  <main>
-    <Hero />
-    <About />
-    <Research />
-    <Experience />
-    <Projects />
-    <Skills />
-    <Contact />
+  <main class="landing">
+    <p class="eyebrow">Vishal Yadav</p>
+    <h1>Choose your path.</h1>
+    <p class="intro">Two versions of my work and thinking, depending on what you are looking for.</p>
+    <div class="choices">
+      <a class="choice" href={professionalUrl}>
+        <span class="title">Professional profile</span>
+        <span class="desc">Research, experience, projects, and skills.</span>
+      </a>
+      <a class="choice" href={personalUrl}>
+        <span class="title">Personal side</span>
+        <span class="desc">Story, books, and what I am thinking about.</span>
+      </a>
+    </div>
   </main>
 </Base>
 
-<script>
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('[data-nav-link]');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) {
-    sections.forEach((s) => s.classList.add('visible'));
-  } else {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      }),
-      { threshold: 0.08 }
-    );
-    sections.forEach((s) => observer.observe(s));
+<style>
+  .landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
   }
-
-  const setActiveLink = (id) => {
-    navLinks.forEach((link) => {
-      const isActive = link.getAttribute('href') === `#${id}`;
-      link.classList.toggle('active', isActive);
-      link.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
-  };
-
-  const sectionSpy = new IntersectionObserver(
-    (entries) => {
-      const visibleEntries = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (visibleEntries.length > 0) {
-        setActiveLink(visibleEntries[0].target.id);
-      }
-    },
-    { threshold: [0.25, 0.5, 0.75], rootMargin: '-20% 0px -55% 0px' }
-  );
-
-  sections.forEach((s) => sectionSpy.observe(s));
-</script>
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 52px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+  .intro {
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 8px;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 760px;
+  }
+  .choice {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text);
+  }
+  .choice:hover {
+    border-color: var(--border-hover);
+    border-bottom-color: var(--border-hover);
+  }
+  .title {
+    font-family: var(--font-display);
+    font-size: 22px;
+  }
+  .desc {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  @media (max-width: 767px) {
+    h1 { font-size: 40px; }
+    .choices { grid-template-columns: 1fr; }
+  }
+</style>

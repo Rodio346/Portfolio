@@ -1,0 +1,99 @@
+:root {
+  --about-bg: #faf7f2;
+  --about-text: #1a1a18;
+  --about-muted: #7a7570;
+  --about-accent: #c1674a;
+  --about-border: rgba(26, 26, 24, 0.1);
+  --about-max-width: 660px;
+  --about-font-display: 'Syne', sans-serif;
+  --about-font-body: 'Lora', serif;
+}
+
+:root[data-theme='dark'] {
+  --about-bg: #121212;
+  --about-text: #efeae2;
+  --about-muted: #989086;
+  --about-accent: #d58363;
+  --about-border: rgba(239, 234, 226, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.about-me-page {
+  background: var(--about-bg);
+  color: var(--about-text);
+  font-family: var(--about-font-body);
+  font-size: 17px;
+  line-height: 1.85;
+  opacity: 0;
+  animation: aboutFadein 0.8s ease forwards;
+}
+
+@keyframes aboutFadein { to { opacity: 1; } }
+
+.about-main {
+  max-width: var(--about-max-width);
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+
+.about-main section { margin-top: 72px; }
+
+.sec-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--about-muted);
+  font-family: var(--about-font-display);
+  margin-bottom: 28px;
+}
+
+.about-main p { margin-bottom: 1.2em; }
+.about-main p:last-child { margin-bottom: 0; }
+
+.em { color: var(--about-text); font-weight: inherit; }
+
+.about-main a {
+  color: var(--about-text);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.about-main a:hover { text-decoration-color: var(--about-muted); }
+
+hr.divider {
+  border: none;
+  border-top: 0.5px solid var(--about-border);
+  margin: 0 0 20px;
+}
+
+.utility-controls {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+  z-index: 40;
+}
+
+.util-btn {
+  border: 1px solid var(--about-border);
+  background: color-mix(in srgb, var(--about-bg) 92%, transparent);
+  color: var(--about-muted);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.util-btn:hover {
+  color: var(--about-text);
+}
+
+.util-btn.hidden {
+  display: none;
+}

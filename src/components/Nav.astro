@@ -2,13 +2,14 @@
   <div class="nav-inner">
     <a class="monogram" href="#top" aria-label="Go to top">VY</a>
     <div class="links">
-      <a class="nav-link" data-nav-link href="#about">About</a>
-      <a class="nav-link" data-nav-link href="#research">Research</a>
-      <a class="nav-link" data-nav-link href="#experience">Experience</a>
-      <a class="nav-link" data-nav-link href="#projects">Projects</a>
-      <a class="nav-link" data-nav-link href="#skills">Skills</a>
-      <a class="nav-link" data-nav-link href="#contact">Contact</a>
+      <a class="nav-link" data-nav-link href="#about"><span class="nav-dot"></span>About</a>
+      <a class="nav-link" data-nav-link href="#research"><span class="nav-dot"></span>Research</a>
+      <a class="nav-link" data-nav-link href="#experience"><span class="nav-dot"></span>Experience</a>
+      <a class="nav-link" data-nav-link href="#projects"><span class="nav-dot"></span>Projects</a>
+      <a class="nav-link" data-nav-link href="#skills"><span class="nav-dot"></span>Skills</a>
+      <a class="nav-link" data-nav-link href="#contact"><span class="nav-dot"></span>Contact</a>
     </div>
+    <button type="button" id="layout-toggle" class="layout-toggle" aria-label="Toggle vertical navigation">Vertical nav</button>
   </div>
 </nav>
 
@@ -19,7 +20,7 @@
     left: 0;
     right: 0;
     height: 48px;
-    background: rgba(14, 14, 14, 0.85);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     z-index: 20;
@@ -52,6 +53,18 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--border);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
 
   .links a:hover {
@@ -63,9 +76,124 @@
     border-bottom-color: var(--text);
   }
 
+  .links a.active .nav-dot {
+    background: var(--text);
+    border-color: var(--text);
+  }
+
+  .layout-toggle {
+    display: none;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: transparent;
+    border-radius: 999px;
+    padding: 4px 9px;
+    cursor: pointer;
+  }
+
+  .layout-toggle:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+  }
+
   @media (max-width: 767px) {
     .links {
       display: none;
     }
   }
+
+  @media (min-width: 768px) {
+    .layout-toggle {
+      display: inline-flex;
+    }
+
+    :global(body.nav-vertical .nav) {
+      top: 20px;
+      left: 24px;
+      right: auto;
+      width: 178px;
+      height: auto;
+      border: none;
+      border-radius: 0;
+      padding: 10px 0 10px 14px;
+      background: transparent;
+      backdrop-filter: blur(8px);
+    }
+
+    :global(body.nav-vertical .nav-inner) {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      height: auto;
+    }
+
+    :global(body.nav-vertical .links) {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    :global(body.nav-vertical .links::before) {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 2px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    :global(body.nav-vertical .links a) {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      border-bottom: none;
+      transition: color 0.2s ease;
+    }
+
+    :global(body.nav-vertical .links a:hover) {
+      color: var(--text);
+    }
+
+    :global(body.nav-vertical .links .nav-dot) {
+      margin-left: -15px;
+    }
+  }
 </style>
+
+<script>
+  const KEY = 'professional-nav-layout';
+  const toggle = document.getElementById('layout-toggle');
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
+  const applyLayout = (layout) => {
+    document.body.classList.toggle('nav-vertical', layout === 'vertical');
+    if (toggle) toggle.textContent = layout === 'vertical' ? 'Top nav' : 'Vertical nav';
+  };
+
+  const initial = localStorage.getItem(KEY) || 'top';
+  applyLayout(isDesktop ? initial : 'top');
+
+  toggle?.addEventListener('click', () => {
+    const current = document.body.classList.contains('nav-vertical') ? 'vertical' : 'top';
+    const next = current === 'vertical' ? 'top' : 'vertical';
+    applyLayout(next);
+    localStorage.setItem(KEY, next);
+  });
+
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+    if (!event.matches) {
+      applyLayout('top');
+      return;
+    }
+    applyLayout(localStorage.getItem(KEY) || 'top');
+  });
+</script>

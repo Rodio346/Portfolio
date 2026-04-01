@@ -1,0 +1,29 @@
+<p class="sec-label">What's occupying my mind.</p>
+<div class="item first">
+  <h3>Evaluation as a discipline</h3>
+  <p>How do we actually know if an AI system is doing what we think it's doing? Benchmarks are often measuring the wrong thing - optimised for legibility, not for what actually matters. I'm interested in evaluation not as a checkbox but as a <span class="em">genuine epistemological problem</span> that the field hasn't fully reckoned with.</p>
+</div>
+<div class="item">
+  <h3>Bias in clinical AI</h3>
+  <p>My research showed that something as simple as note length correlates with patient gender, and that this propagates into diagnostic models. It made me think harder about what <span class="em">"data quality" really means</span> when the data is human-generated language full of unstated assumptions - written by people, about people, in a world that is not neutral.</p>
+</div>
+<div class="item">
+  <h3>What AI safety actually requires</h3>
+  <p>There's a lot of theoretical work in alignment, and a lot of empirical work in red-teaming. I'm interested in the gap between them - specifically, what <span class="em">observability and evaluation infrastructure</span> you need to detect when a deployed system is drifting from intent. Safety needs to be operational, not just conceptual.</p>
+</div>
+<div class="item">
+  <h3>The limits of explainability</h3>
+  <p>I've used LIME, GradCAM, and integrated gradients in production research. I'm genuinely uncertain whether current explainability techniques tell us what we think they do. The gap between <span class="em">"here's which pixels mattered"</span> and "here's why the model decided this" is still enormous - and closing it matters.</p>
+</div>
+<div class="item last">
+  <h3>Building things that last</h3>
+  <p>Software engineering and research have very different cultures around reliability and maintenance. I find myself thinking about how you build AI systems that are <span class="em">auditable, maintainable, and honest about their own limitations</span> - not just at launch, but over months and years of deployment.</p>
+</div>
+
+<style>
+  .item { padding: 22px 0; border-bottom: 0.5px solid var(--about-border); }
+  .item.first { padding-top: 0; }
+  .item.last { border-bottom: none; }
+  h3 { font-family: var(--about-font-body); font-size: 17px; font-weight: 600; color: var(--about-text); margin-bottom: 8px; line-height: 1.3; }
+  p { font-size: 14px; color: var(--about-muted); line-height: 1.8; }
+</style>

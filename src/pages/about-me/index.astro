@@ -1,0 +1,23 @@
+---
+import AboutMeBase from '../../layouts/AboutMeBase.astro';
+import Hello from '../../components/about-me/Hello.astro';
+import Story from '../../components/about-me/Story.astro';
+import Thinking from '../../components/about-me/Thinking.astro';
+import Books from '../../components/about-me/Books.astro';
+import Outside from '../../components/about-me/Outside.astro';
+import FindMe from '../../components/about-me/FindMe.astro';
+---
+
+<AboutMeBase
+  title="Vishal Yadav"
+  description="Researcher, engineer, and occasional arguer about films. Based in London."
+>
+  <main class="about-main">
+    <Hello />
+    <section><Story /></section>
+    <section><Thinking /></section>
+    <section><Books /></section>
+    <section><Outside /></section>
+    <section><FindMe /></section>
+  </main>
+</AboutMeBase>

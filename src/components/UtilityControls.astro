@@ -1,0 +1,44 @@
+<div class="utility-controls" aria-label="Quick controls">
+  <button type="button" id="theme-toggle" class="util-btn" aria-label="Toggle theme">Theme</button>
+  <a class="util-btn" href="mailto:visdav8@gmail.com" aria-label="Quick contact">Contact</a>
+  <button type="button" id="scroll-top" class="util-btn hidden" aria-label="Scroll to top">Top</button>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const body = document.body;
+  const storedTheme = localStorage.getItem('site-theme');
+  const defaultTheme = body.dataset.defaultTheme || 'dark';
+  const nextTheme = storedTheme || defaultTheme;
+  root.setAttribute('data-theme', nextTheme);
+
+  const themeBtn = document.getElementById('theme-toggle');
+  const topBtn = document.getElementById('scroll-top');
+
+  const updateThemeLabel = () => {
+    if (themeBtn) {
+      const current = root.getAttribute('data-theme') || defaultTheme;
+      themeBtn.textContent = current === 'dark' ? 'Light' : 'Dark';
+    }
+  };
+  updateThemeLabel();
+
+  themeBtn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') || defaultTheme;
+    const updated = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', updated);
+    localStorage.setItem('site-theme', updated);
+    updateThemeLabel();
+  });
+
+  const toggleTopBtn = () => {
+    if (!topBtn) return;
+    topBtn.classList.toggle('hidden', window.scrollY < 420);
+  };
+  toggleTopBtn();
+  window.addEventListener('scroll', toggleTopBtn, { passive: true });
+
+  topBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
