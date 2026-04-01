@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vishalyadav.github.io',
-  base: '/portfolio-pro',
+  site: 'https://rodio346.github.io',
+  base: '/Porfolio',
   output: 'static',
 });
