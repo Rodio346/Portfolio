@@ -1,0 +1,71 @@
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="monogram" href="#top" aria-label="Go to top">VY</a>
+    <div class="links">
+      <a class="nav-link" data-nav-link href="#about">About</a>
+      <a class="nav-link" data-nav-link href="#research">Research</a>
+      <a class="nav-link" data-nav-link href="#experience">Experience</a>
+      <a class="nav-link" data-nav-link href="#projects">Projects</a>
+      <a class="nav-link" data-nav-link href="#skills">Skills</a>
+      <a class="nav-link" data-nav-link href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: rgba(14, 14, 14, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 20;
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .monogram {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text);
+    border-bottom: none;
+  }
+
+  .links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .links a {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .links a:hover {
+    color: var(--text);
+  }
+
+  .links a.active {
+    color: var(--text);
+    border-bottom-color: var(--text);
+  }
+
+  @media (max-width: 767px) {
+    .links {
+      display: none;
+    }
+  }
+</style>

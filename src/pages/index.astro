@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Research from '../components/Research.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Base
+  title="Vishal Yadav — AI Evaluation & Safety Research Engineer"
+  description="Research Engineer specialising in AI evaluation, bias mitigation, and the societal impacts of frontier AI systems. Based in London."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <Research />
+    <Experience />
+    <Projects />
+    <Skills />
+    <Contact />
+  </main>
+</Base>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    sections.forEach((s) => s.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      }),
+      { threshold: 0.08 }
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+
+  const setActiveLink = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', isActive);
+      link.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+  };
+
+  const sectionSpy = new IntersectionObserver(
+    (entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visibleEntries.length > 0) {
+        setActiveLink(visibleEntries[0].target.id);
+      }
+    },
+    { threshold: [0.25, 0.5, 0.75], rootMargin: '-20% 0px -55% 0px' }
+  );
+
+  sections.forEach((s) => sectionSpy.observe(s));
+</script>

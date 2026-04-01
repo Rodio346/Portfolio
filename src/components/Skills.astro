@@ -1,0 +1,18 @@
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <p class="section-intro">
+    Core stack for building, evaluating, and shipping reliable AI systems.
+  </p>
+  <div class="row"><p class="cat">AI &amp; Research</p><p class="terms"><span class="highlight">Evaluation Frameworks</span>, <span class="highlight">Bias Mitigation</span>, <span class="highlight">Benchmarking</span>, Explainability (LIME, GradCAM), RLHF, Agentic AI, RAG, Generative AI, Reinforcement Learning, NLP, Computer Vision, Deep Learning</p></div>
+  <div class="row"><p class="cat">Infra &amp; MLOps</p><p class="terms"><span class="highlight">Langfuse</span>, MLFlow, Vertex AI, AWS, Azure, Terraform, CUDA, GPU Optimisation, Docker</p></div>
+  <div class="row"><p class="cat">Languages</p><p class="terms"><span class="highlight">Python</span>, C/C++, SQL, TypeScript, Bash, R</p></div>
+  <div class="row"><p class="cat">Frameworks</p><p class="terms"><span class="highlight">PyTorch</span>, TensorFlow, HuggingFace, Scikit-Learn, SpaCy, OpenCV, NumPy, Pandas, Playwright</p></div>
+  <div class="row last"><p class="cat">Databases</p><p class="terms">PostgreSQL, MongoDB, Firebase, Redis</p></div>
+</section>
+<style>
+  .row { display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--border); }
+  .row.last { border-bottom: none; }
+  .cat { font-size: 10px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); }
+  .terms { font-size: 12px; color: var(--muted); line-height: 1.7; }
+  @media (max-width: 767px) { .row { grid-template-columns: 1fr; gap: 8px; } }
+</style>

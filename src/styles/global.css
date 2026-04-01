@@ -1,0 +1,133 @@
+:root {
+  --bg: #0e0e0e;
+  --text: #f0ede6;
+  --muted: #8a8680;
+  --accent: #4a9e8a;
+  --border: rgba(240, 237, 230, 0.1);
+  --border-hover: rgba(240, 237, 230, 0.25);
+  --max-width: 760px;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Mono', monospace;
+  --section-gap: 40px;
+  --measure: 68ch;
+  --paragraph-gap: 14px;
+  --intro-gap: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+section {
+  padding: var(--section-gap) 0;
+  border-top: 2px solid var(--border);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-family: var(--font-body);
+}
+
+.section-intro {
+  max-width: var(--measure);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: var(--intro-gap);
+}
+
+.prose-block {
+  max-width: var(--measure);
+}
+
+.key-points {
+  list-style: none;
+  margin: 8px 0 var(--paragraph-gap);
+}
+
+.key-points li {
+  position: relative;
+  padding-left: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+.key-points li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  a {
+    transition: none;
+  }
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.highlight {
+  color: var(--text);
+}

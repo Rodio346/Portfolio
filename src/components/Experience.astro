@@ -1,0 +1,47 @@
+---
+const items = [
+  { date: 'Mar 16 2026 / Mar 21 2026', role: 'Technical AI Safety Course', company: 'BlueDot Impact · Remote', current: false, bullets: ['Completed an intensive technical program focused on practical AI safety concepts and risk-aware system design.','Worked through hands-on exercises covering evaluation, failure analysis, and mitigation-oriented thinking for modern AI systems.','Collaborated in discussion-based sessions to apply safety principles to real-world deployment scenarios.'] },
+  { date: 'Dec 2025 / Mid Mar 2026', role: 'Research Engineer', company: 'Arva AI · London', current: false, bullets: ['Redesigned benchmarking framework - decomposed a flawed combined metric into <span class="highlight">factor-specific accuracy scores</span> for verdict prediction and discounting.','Built full agentic observability with <span class="highlight">Langfuse</span> - structured tracing of all agent calls across offline and online environments.','Developed complete evaluation infrastructure: custom evaluators, <span class="highlight">golden dataset</span>, scoring logic, and construction guidelines.'] },
+  { date: 'Mar 2025 / Nov 2025', role: 'LLM Trainer & Evaluator', company: 'Mercor Intelligence · Remote', current: false, bullets: ['Designed complex scenarios to stress-test conversational AI - identifying edge cases and failure modes systematically.','Built evaluation rubrics quantifying performance across accuracy, contextual alignment, and user experience.'] },
+  { date: 'Nov 2023 / Feb 2025', role: 'Research Assistant', company: 'Queen Mary University of London · London', current: false, bullets: ['Developed bias detection and mitigation algorithms for clinical AI; published in <span class="highlight">Nature (2026)</span>.','Improved anxiety detection by <span class="highlight">10%</span> using time series-based medical NER.','Co-developed a clinical AI platform with <span class="highlight">NHS DialogPlus</span> on Azure GPU infrastructure.'] },
+  { date: 'Jul 2021 / Jul 2022', role: 'Product Engineer, AI Technology', company: 'AI Technology & Systems · California (Remote)', current: false, bullets: ['Built a Deep Neural Network Compiler using Eigen, ONNX, and Caffe for edge devices.','Supervised <span class="highlight">45 interns</span> building TinyML applications.'] },
+  { date: 'Nov 2019 / Mar 2021', role: 'Research Intern', company: 'Indian Institute of Technology · Indore', current: false, bullets: ['Developed AR applications and a traceability app for Android - published.','Contributed to an Intelligent AGV for smart manufacturing (Industry 4.0).'] },
+];
+---
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <p class="section-intro">
+    Roles focused on AI evaluation infrastructure, safety research, and applied model quality.
+  </p>
+  {items.map((item, index) => (
+    <article class="entry">
+      <p class="date">{item.date}</p>
+      <div class="right">
+        <div class:list={['dot', item.current && 'current']}></div>
+        {index !== items.length - 1 && <div class="connector"></div>}
+        <div class:list={['content', index === items.length - 1 && 'last']}>
+          <h3>{item.role}</h3>
+          <p class="company">{item.company}</p>
+          <ul>
+            {item.bullets.map((bullet) => <li set:html={bullet}></li>)}
+          </ul>
+        </div>
+      </div>
+    </article>
+  ))}
+</section>
+<style>
+  .entry { display: grid; grid-template-columns: 72px 1fr; gap: 12px; }
+  .date { text-align: right; font-size: 10px; color: var(--muted); line-height: 1.4; padding-top: 2px; }
+  .right { position: relative; padding-left: 18px; }
+  .dot { position: absolute; left: 0; top: 3px; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); background: transparent; }
+  .dot.current { background: var(--text); border-color: var(--text); }
+  .connector { position: absolute; left: 4px; top: 13px; bottom: 0; width: 1px; background: var(--border); }
+  .content { padding-bottom: 28px; }
+  .content.last { padding-bottom: 0; }
+  h3 { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--text); }
+  .company { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  ul { list-style: none; }
+  li { position: relative; padding-left: 12px; font-size: 12px; color: var(--muted); line-height: 1.65; margin-bottom: 6px; }
+  li::before { content: '·'; position: absolute; left: 0; color: var(--muted); }
+</style>

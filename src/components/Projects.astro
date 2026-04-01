@@ -1,0 +1,46 @@
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <p class="section-intro">
+    Practical builds spanning evaluation tooling, multimodal AI, and production-oriented research systems.
+  </p>
+  <div class="featured-grid">
+    <a class="card" href="https://github.com/Rodio346/deepgaurd" target="_blank" rel="noreferrer">
+      <p class="top"><span>Featured</span><span class="status">In progress</span></p>
+      <h3>DeepGuard</h3>
+      <p class="desc">End-to-end pipeline for detecting deepfake and AI-generated speaking videos on YouTube. Tests motion entropy as a computationally efficient signal alongside traditional classifiers - with a Claude-powered reporting layer and Streamlit human review dashboard.</p>
+      <p class="tags"><span>Deepfake Detection</span><span>Computer Vision</span><span>Claude API</span><span>OpenCV</span><span>Streamlit</span></p>
+    </a>
+    <a class="card" href="https://github.com/Rodio346/Re_Search" target="_blank" rel="noreferrer">
+      <p class="top"><span>Featured</span><span class="status">Hackathon</span></p>
+      <h3>Re_Search</h3>
+      <p class="desc">AI-powered platform connecting researchers with career-defining opportunities. Built at the Perplexity Hackathon - uses grounded search and LLM reasoning to match researchers with roles via a reasoning graph over papers, skills, and opportunities.</p>
+      <p class="tags"><span>Perplexity API</span><span>Next.js</span><span>Google Scholar</span><span>NeurIPS 2024</span></p>
+    </a>
+  </div>
+  <div class="divider"></div>
+  <div class="compact">
+    <article><div><p class="title">Multimodal Hate Speech Detection</p><p class="desc">Compared early, late, and cross-attention fusion across BERT, ViT, and VisualBERT for multimodal classification.</p><p class="tags"><span>NLP</span><span>Multimodal</span><span>Transformers</span></p></div><p class="date">May - Sep 2023</p></article>
+    <article><div><p class="title"><a href="https://github.com/Rodio346/Article_person_verification" target="_blank" rel="noreferrer">Article Person Verification Agent</a></p><p class="desc">Autonomous adverse media screening using LangGraph and Gemini - with MLflow tracing and multilingual support across 6+ scripts.</p><p class="tags"><span>LangGraph</span><span>MLflow</span><span>Gemini</span></p></div><p class="date">2025</p></article>
+    <article><div><p class="title">Brain Tumor Segmentation</p><p class="desc">3D FMRI segmentation using NVIDIA deep learning libraries and SAM.</p><p class="tags"><span>Medical AI</span><span>Computer Vision</span><span>PyTorch</span></p></div><p class="date">Sep - Dec 2023</p></article>
+    <article><div><p class="title">Traceability App for SMEs</p><p class="desc">End-to-end supply chain traceability; launched on Google Play Store.</p><p class="tags"><span>Android</span><span>Industry 4.0</span></p></div><p class="date">2021</p></article>
+    <article class="last"><div><p class="title">DNN Compiler for Edge Devices</p><p class="desc">Compiled high-level DNN specs to optimised machine code for constrained hardware using C++ and Eigen.</p><p class="tags"><span>C++</span><span>Edge AI</span><span>ONNX</span></p></div><p class="date">2020</p></article>
+  </div>
+</section>
+<style>
+  .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .card { background: rgba(240, 237, 230, 0.04); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+  .card:hover { border-color: var(--border-hover); }
+  .top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 10px; text-transform: uppercase; color: var(--muted); }
+  .status { border: 1px solid var(--border); border-radius: 20px; padding: 2px 7px; text-transform: none; }
+  h3 { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .desc { font-size: 11px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tags span { font-size: 10px; padding: 2px 7px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); }
+  .divider { border-top: 1px solid var(--border); margin-bottom: 18px; }
+  .compact article { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .compact article.last { border-bottom: none; }
+  .title { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+  .compact .desc { line-height: 1.5; margin-bottom: 5px; }
+  .date { font-size: 10px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+  @media (max-width: 767px) { .featured-grid { grid-template-columns: 1fr; } }
+</style>
