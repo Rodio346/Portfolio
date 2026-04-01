@@ -1,6 +1,6 @@
 # Vishal Yadav Portfolio
 
-Live site: [https://rodio346.github.io/Porfolio/](https://rodio346.github.io/Portfolio/)
+Live site: [https://rodio346.github.io/Portfolio/](https://rodio346.github.io/Portfolio/)
 
 ## Run locally
 
