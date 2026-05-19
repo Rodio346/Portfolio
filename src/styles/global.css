@@ -40,6 +40,7 @@ body {
   font-size: 14px;
   line-height: 1.75;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 main {
@@ -177,4 +178,29 @@ a:hover {
 
 .util-btn.hidden {
   display: none;
+}
+
+@media (max-width: 767px) {
+  main {
+    padding: 0 16px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .section-label {
+    margin-bottom: 22px;
+  }
+
+  .utility-controls {
+    right: 12px;
+    bottom: 12px;
+    gap: 6px;
+  }
+
+  .util-btn {
+    padding: 6px 9px;
+    font-size: 9px;
+  }
 }

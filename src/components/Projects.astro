@@ -42,5 +42,9 @@
   .title { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
   .compact .desc { line-height: 1.5; margin-bottom: 5px; }
   .date { font-size: 10px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
-  @media (max-width: 767px) { .featured-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) {
+    .featured-grid { grid-template-columns: 1fr; }
+    .compact article { grid-template-columns: 1fr; gap: 8px; }
+    .date { padding-top: 0; }
+  }
 </style>
