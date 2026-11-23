@@ -1,23 +1,31 @@
 <p class="sec-label">What's occupying my mind.</p>
 <div class="item first">
-  <h3>Evaluation as a discipline</h3>
-  <p>How do we actually know if an AI system is doing what we think it's doing? Benchmarks are often measuring the wrong thing - optimised for legibility, not for what actually matters. I'm interested in evaluation not as a checkbox but as a <span class="em">genuine epistemological problem</span> that the field hasn't fully reckoned with.</p>
+  <h3>When can we trust "it can't do that"?</h3>
+  <p>Safety cases increasingly rest on an evaluation saying a model <em>can't</em> do something dangerous. That claim assumes the model was trying its best. I've come to think this is one of the most under-examined assumptions in the field: evaluation isn't a checkbox, it's a <span class="em">genuine epistemological problem</span>, and a low score is only as trustworthy as our ability to rule out a model that is holding back.</p>
+</div>
+<div class="item">
+  <h3>The comparison decides the answer</h3>
+  <p>In my sandbagging experiments I changed my mind three times, and each time it was because I added a fairer comparison. A detector that looked like the best signal flagged genuinely weak models just as often. So I now think every detection claim should say <span class="em">what it was compared against</span> - a smaller model, a blanked question, the same model with less information - because one run can pass against one reference and fail against another. If our tests only catch the models that are bad at hiding, passing one tells us less than it seems.</p>
+</div>
+<div class="item">
+  <h3>Reasoning as safety infrastructure</h3>
+  <p>A monitor I built missed the most precise faker - not because the model hid its plan, but because it wrote the plan in a channel the monitor wasn't reading. Given the model's reasoning, the same monitor caught it easily. That makes me think readable reasoning should be treated as <span class="em">safety infrastructure</span>, and raises a question I can't shake: who decides how much of it stays visible? Safety has to be operational, not just conceptual.</p>
+</div>
+<div class="item">
+  <h3>Borrowing from older fields</h3>
+  <p>Clinicians have caught people faking memory loss for decades: score below chance and you must have known the answers. AI safety keeps reinventing tools that psychometrics and forensic psychology already refined - including the idea of <span class="em">protecting test materials</span> so they keep working. I think the next good evaluation ideas will come from fields that have dealt with motivated test-takers for a long time.</p>
+</div>
+<div class="item">
+  <h3>The models nobody is testing</h3>
+  <p>Platforms like India's AIKosh host hundreds of models for Indian languages, speech and niche domains, and few of them seem to have been tested by anyone other than the people who built them. Independent evaluation - accuracy, bias, whether safety checks still work in <span class="em">Hindi and low-resource languages</span> - shouldn't stop at frontier English models. That gap is where I think I can be most useful from India.</p>
 </div>
 <div class="item">
   <h3>Bias in clinical AI</h3>
-  <p>My research showed that something as simple as note length correlates with patient gender, and that this propagates into diagnostic models. It made me think harder about what <span class="em">"data quality" really means</span> when the data is human-generated language full of unstated assumptions - written by people, about people, in a world that is not neutral.</p>
-</div>
-<div class="item">
-  <h3>What AI safety actually requires</h3>
-  <p>There's a lot of theoretical work in alignment, and a lot of empirical work in red-teaming. I'm interested in the gap between them - specifically, what <span class="em">observability and evaluation infrastructure</span> you need to detect when a deployed system is drifting from intent. Safety needs to be operational, not just conceptual.</p>
-</div>
-<div class="item">
-  <h3>The limits of explainability</h3>
-  <p>I've used LIME, GradCAM, and integrated gradients in production research. I'm genuinely uncertain whether current explainability techniques tell us what we think they do. The gap between <span class="em">"here's which pixels mattered"</span> and "here's why the model decided this" is still enormous - and closing it matters.</p>
+  <p>My research showed that something as simple as note length correlates with patient gender, and that this propagates into diagnostic models. It made me think harder about what <span class="em">"data quality" really means</span> when the data is human-generated language full of unstated assumptions - written by people, about people, in a world that is not neutral. It's also why I care whether fixes survive the next model update.</p>
 </div>
 <div class="item last">
-  <h3>Building things that last</h3>
-  <p>Software engineering and research have very different cultures around reliability and maintenance. I find myself thinking about how you build AI systems that are <span class="em">auditable, maintainable, and honest about their own limitations</span> - not just at launch, but over months and years of deployment.</p>
+  <h3>The limits of explainability</h3>
+  <p>I've used LIME, GradCAM, and integrated gradients in production research. I'm genuinely uncertain whether current explainability techniques tell us what we think they do. The gap between <span class="em">"here's which pixels mattered"</span> and "here's why the model decided this" is still enormous - and closing it matters.</p>
 </div>
 
 <style>

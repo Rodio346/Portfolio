@@ -1,5 +1,6 @@
 ---
 const items = [
+  { date: 'Sep 2026 / Present', role: 'Independent AI Safety Researcher', company: 'Self-directed · Indore, India (Remote)', current: true, bullets: ['Built an <span class="highlight">Inspect</span>-based harness porting clinical symptom validity tests to LLM sandbagging: six detectors, a four-rung ladder of sandbagging sophistication, compliance gates and same-model null bands (55 tests, CI).','Showed that detector verdicts depend on the <span class="highlight">genuine-weakness reference</span> they are compared against, and that a monitor needs the reasoning channel to catch the most precise sandbagger.','Ran a version-tracking <span class="highlight">bias drift</span> study across 6 Llama and Gemini releases on 400 clinical vignettes; published results openly with sanitised, text-free data exports.'] },
   { date: 'May 2026 / Present', role: 'AI Auditor', company: 'Mercor Intelligence · Remote (Contract)', current: true, bullets: ['Audited tasks from subject-matter consultants for guideline adherence, running multi-stage <span class="highlight">quality control checkpoints</span> across the task lifecycle.','Evaluated AI-generated responses for correctness and guideline alignment; verified reviewer annotations to reduce downstream errors.'] },
   { date: 'Mar 2026 / April 2026', role: 'Technical AI Safety Course', company: 'BlueDot Impact · Remote', current: false, bullets: ['Completed an intensive technical program focused on practical AI safety concepts and risk-aware system design.','Worked through hands-on exercises covering evaluation, failure analysis, and mitigation-oriented thinking for modern AI systems.','Collaborated in discussion-based sessions to apply safety principles to real-world deployment scenarios.'] },
   { date: 'Dec 2025 / Mid Mar 2026', role: 'Research Engineer', company: 'Arva AI · London', current: false, bullets: ['Redesigned benchmarking framework - decomposed a flawed combined metric into <span class="highlight">factor-specific accuracy scores</span> for verdict prediction and discounting.','Built full agentic observability with <span class="highlight">Langfuse</span> - structured tracing of all agent calls across offline and online environments.','Developed complete evaluation infrastructure: custom evaluators, <span class="highlight">golden dataset</span>, scoring logic, and construction guidelines.'] },
@@ -15,7 +16,7 @@ const earlierItems = [
 <section id="experience">
   <p class="section-label">Experience</p>
   <p class="section-intro">
-    Roles focused on AI evaluation infrastructure, safety research, and applied model quality.
+    Roles focused on AI evaluation infrastructure, evaluation validity, safety research, and applied model quality.
   </p>
   {items.map((item, index) => (
     <article class="entry">
